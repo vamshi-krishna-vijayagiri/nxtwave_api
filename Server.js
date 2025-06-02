@@ -1,4 +1,3 @@
-// server.js
 const express = require('express');
 const mysql = require('mysql2');
 const cors = require('cors');
@@ -12,13 +11,11 @@ const port = 5000;
 
 // Create MySQL connection
 const db = mysql.createConnection({
-  host: process.env.MYSQLHOST,
-  user: process.env.MYSQLUSER,
-  password: process.env.MYSQLPASSWORD,
-  database: process.env.MYSQLDATABASE,
-  port: process.env.MYSQLPORT
+  host: 'localhost',
+  user: 'root',
+  password: 'Vamshi@mysql',
+  database: 'nxtwavedb',
 });
-
 
 // Connect to MySQL
 db.connect((err) => {
@@ -133,7 +130,7 @@ app.delete('/user-delete', (req, res) => {
       return res.status(404).json({ message: 'User not found' });
     }
 
-    res.json({ message: 'Account deleted successfully' });
+    res.json({ message: 'Account Deleted Successfully' });
   });
 });
 
